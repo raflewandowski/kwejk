@@ -4,10 +4,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.akademiakodu.kwejk.model.Category;
 import org.springframework.context.annotation.*;
-import pl.akademiakodu.kwejk.model.Gif;
+import pl.akademiakodu.kwejk.model.*;
 
 @Configuration
 public class ConfigurationRepository {
+
 
     @Bean
 
