@@ -6,6 +6,7 @@ import pl.akademiakodu.kwejk.model.*;
 @Configuration
 public class ConfigurationRepository {
 
+
     @Bean
     public GifsRepository gifsRepository() {
         GifsRepository gifsRepository = new GifsRepository();
