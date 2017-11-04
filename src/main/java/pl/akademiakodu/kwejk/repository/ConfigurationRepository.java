@@ -1,11 +1,8 @@
 package pl.akademiakodu.kwejk.repository;
 
 import org.springframework.context.annotation.*;
-import pl.akademiakodu.kwejk.model.Gif;
+import pl.akademiakodu.kwejk.model.*;
 
-/**
- * Created by Patryk Dudzik on 04.11.2017.
- */
 @Configuration
 public class ConfigurationRepository {
 
