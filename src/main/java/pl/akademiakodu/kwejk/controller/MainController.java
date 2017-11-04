@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import pl.akademiakodu.kwejk.Repository.GifsRepository;
+import pl.akademiakodu.kwejk.repository.GifsRepository;
 
 /**
  * Created by Patryk Dudzik on 04.11.2017.
