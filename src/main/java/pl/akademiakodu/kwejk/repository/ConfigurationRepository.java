@@ -1,4 +1,4 @@
-package pl.akademiakodu.kwejk.Repository;
+package pl.akademiakodu.kwejk.repository;
 
 import org.springframework.context.annotation.*;
 import pl.akademiakodu.kwejk.model.Gif;

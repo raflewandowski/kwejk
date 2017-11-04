@@ -1,4 +1,4 @@
-package pl.akademiakodu.kwejk.Repository;
+package pl.akademiakodu.kwejk.repository;
 
 import pl.akademiakodu.kwejk.model.Gif;
 
