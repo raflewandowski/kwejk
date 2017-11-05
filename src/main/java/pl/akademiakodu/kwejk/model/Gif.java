@@ -12,4 +12,5 @@ public class Gif {
     private Long id;
     private String name;
     private boolean favorite;
+    private Category category;
 }
