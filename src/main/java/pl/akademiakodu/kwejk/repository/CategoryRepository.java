@@ -1,7 +1,5 @@
 package pl.akademiakodu.kwejk.repository;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import pl.akademiakodu.kwejk.model.Category;
 
 import java.util.ArrayList;
@@ -14,16 +12,22 @@ public class CategoryRepository {
 
     public List<Category> categories = new ArrayList<>();
 
-    public List<Category> getCategories() {
-        return categories;
-    }
-
     public void addCategory (Category category){
         categories.add(category);
     }
 
-    public List<Category> showAllCategory(){
+    public List<Category> findAll(){
         return categories;
+    }
+
+    public List<Category> findByName (String name){
+        List<Category> categoryList = new ArrayList<>();
+        for (Category category : categories){
+            if (category.getName().contains(name)){
+                categoryList.add(category);
+            }
+        }return categoryList;
+
     }
 
 }
