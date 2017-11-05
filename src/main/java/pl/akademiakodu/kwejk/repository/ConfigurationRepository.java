@@ -11,7 +11,6 @@ public class ConfigurationRepository {
 
 
     @Bean
-
     public CategoryRepository categoryRepository (){
         CategoryRepository categoryRepository = new CategoryRepository();
         categoryRepository.addCategory(new Category(1L, "mems"));
@@ -21,6 +20,7 @@ public class ConfigurationRepository {
         return categoryRepository;
     }
 
+    @Bean
     public GifsRepository gifsRepository() {
         GifsRepository gifsRepository = new GifsRepository();
         gifsRepository.addGif(new Gif(1L, "android-explosion", true));
