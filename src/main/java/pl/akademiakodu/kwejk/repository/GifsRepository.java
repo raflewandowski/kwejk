@@ -27,4 +27,26 @@ public class GifsRepository {
         });
         return favorites;
     }
+
+    public List<Gif> getGifsByName (String name){
+        List<Gif> gifsByName = new ArrayList<>();
+        gifs.stream().forEach(gif -> {
+            if (gif.getName().contains(name)){
+                gifsByName.add(gif);
+            }
+        });
+        return gifsByName;
+    }
+
+    public List<Gif> getGifsByCategory (Long id){
+        List<Gif> gifsByCategory = new ArrayList<>();
+        gifs.stream().forEach(gif -> {
+            if (gif.getCategory().getId().equals(id)){
+                gifsByCategory.add(gif);
+            }
+        });
+        return gifsByCategory;
+    }
+
+
 }

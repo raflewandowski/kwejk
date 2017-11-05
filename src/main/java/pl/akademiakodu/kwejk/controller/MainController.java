@@ -1,9 +1,9 @@
 package pl.akademiakodu.kwejk.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.akademiakodu.kwejk.repository.GifsRepository;
 
 /**
@@ -16,8 +16,12 @@ public class MainController {
     GifsRepository gifsRepository;
 
     @GetMapping("/")
-    public String main (ModelMap modelMap) {
-        modelMap.addAttribute("gifs", gifsRepository.getGifs());
+    public String mains (@RequestParam(required = false) String q, ModelMap modelMap) {
+        if (q != null && !q.isEmpty()) { //apache
+            modelMap.addAttribute("gifs", gifsRepository.getGifsByName(q));
+        } else {
+            modelMap.addAttribute("gifs", gifsRepository.getGifs());
+        }
         return "home";
     }
 }
