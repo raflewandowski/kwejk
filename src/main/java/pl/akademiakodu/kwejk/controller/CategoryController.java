@@ -14,13 +14,18 @@ public class CategoryController {
 
     @Autowired
     CategoryRepository categoryRepository;
-
+  
     @Autowired
     GifsRepository gifsRepository;
+  
+    @GetMapping("/categories")
+    public String categoriesSearchEngine(@RequestParam (required = false) String q, ModelMap modelMap) {
 
-    @GetMapping ("/categories")
-    public String categories (ModelMap modelMap){
-        modelMap.addAttribute("categories", categoryRepository.categories);
+        if(q != null && !q.isEmpty()) {
+            modelMap.addAttribute("categories", categoryRepository.findByName(q));
+        } else {
+            modelMap.addAttribute("categories", categoryRepository.findAll());
+        }
         return "categories";
     }
 
