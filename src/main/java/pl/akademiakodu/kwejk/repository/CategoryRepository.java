@@ -2,8 +2,7 @@ package pl.akademiakodu.kwejk.repository;
 
 import pl.akademiakodu.kwejk.model.Category;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Rafal Lewandowski on 04.11.2017.
@@ -28,6 +27,12 @@ public class CategoryRepository {
             }
         }return categoryList;
 
+    public Category getCategory (Long id) {
+        for (Category category : categories) {
+            if (category.getId().equals(id)) {
+                return category;
+            }
+        }
+        throw new IllegalArgumentException("Category with this id doesn't exist");
     }
-
 }

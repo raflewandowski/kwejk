@@ -3,9 +3,8 @@ package pl.akademiakodu.kwejk.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import pl.akademiakodu.kwejk.repository.CategoryRepository;
+import org.springframework.web.bind.annotation.*;
+import pl.akademiakodu.kwejk.repository.*;
 
 /**
  * Created by Rafal Lewandowski on 04.11.2017.
@@ -15,13 +14,10 @@ public class CategoryController {
 
     @Autowired
     CategoryRepository categoryRepository;
-
-//    @GetMapping("/categories")
-//    public String categories(ModelMap modelMap) {
-//        modelMap.addAttribute("categories", categoryRepository.categories);
-//        return "categories";
-//    }
-
+  
+    @Autowired
+    GifsRepository gifsRepository;
+  
     @GetMapping("/categories")
     public String categoriesSearchEngine(@RequestParam (required = false) String q, ModelMap modelMap) {
 
@@ -31,5 +27,12 @@ public class CategoryController {
             modelMap.addAttribute("categories", categoryRepository.findAll());
         }
         return "categories";
+    }
+
+    @GetMapping ("/category/{id}")
+    public String category (@PathVariable("id") Long id, ModelMap modelMap){
+        modelMap.addAttribute("category", categoryRepository.getCategory(id));
+        modelMap.addAttribute("gifs", gifsRepository.getGifsByCategory(id));
+        return "category";
     }
 }
