@@ -19,13 +19,15 @@ public class CategoryRepository {
         return categories;
     }
 
-    public List<Category> findByName (String name){
+    public List<Category> findByName (String name) {
         List<Category> categoryList = new ArrayList<>();
-        for (Category category : categories){
-            if (category.getName().contains(name)){
+        for (Category category : categories) {
+            if (category.getName().contains(name)) {
                 categoryList.add(category);
             }
-        }return categoryList;
+        }
+        return categoryList;
+    }
 
     public Category getCategory (Long id) {
         for (Category category : categories) {
